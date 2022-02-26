@@ -24,16 +24,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="nome" class="control-label"></label>
-                <input asp-for="nome" class="form-control" />
+                <input asp-for="nome" id="Camponome" class="form-control" />
                 <span asp-validation-for="nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="submit" value="Create" class="btn btn-primary" />
+                    Salvar
+                </button>
             </div>
         </form>
     </div>
 </div>
 
+      
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
@@ -41,9 +44,22 @@
 @section Scripts {
    <script>
 
-       alert("Hello word")
-       console.log("Texto do console")
+       $("button").click(function () {
+           if ($("#Camponome").val() == "") {
+               $("#Camponome").css("border", "3px solid red")
+               return false
+           }
+       })
 
    </script>
        
    }
+@section css{ 
+    <style>
+        .form-control {
+            border: 2px double #FFDEAD;
+            background-color: #F0FFF0;
+            color: #000000
+        }
+    </style >
+}
